@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.li {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  @apply bg-blue-bayoux-500 rounded-lg font-bold text-blue-bayoux-200 py-1 px-3 hover:bg-blue-bayoux-800 mx-1.5 my-0.5;
+}
+
+input {
+  @apply outline-none rounded-md;
+}
