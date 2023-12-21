@@ -117,7 +117,6 @@ expenseList.addEventListener("click", (e) => {
     li.innerHTML = `<input id="editedName" value="${expenseName}" class="w-2/5"></input><input class="w-2/5" id="editedValue" value="${expenseValue}"</input><button class="save">Zapisz</button>`;
   } else if (e.target.classList.contains("save")) {
     const li = e.target.parentElement.parentElement;
-    console.log(li);
     const newName = li.querySelector("#editedName").value;
     const newAmount = li.querySelector("#editedValue").value;
     if (isNaN(newAmount) || newAmount <= 0) {
