@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en>
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="output.css" />
   </head>
   <body class="bg-blue-bayoux-400">
-    <div><img src="icons8-wallet-100 (1).png" alt="wallet" class="mx-auto mt-10 w-40"></div>
+    <div>
+      <img
+        src="icons8-wallet-100 (1).png"
+        alt="wallet"
+        class="mx-auto mt-10 w-40"
+      />
+    </div>
     <div class="my-10">
       <h1 class="font-bold text-2xl text-center text-blue-bayoux-900">
         Możesz jeszcze wydać <span id="total-budget">0</span> złotych
@@ -23,11 +29,7 @@
             PRZYCHODY
           </h4>
           <div class="flex justify-start gap-2 ml-3">
-            <input
-              type="text"
-              placeholder=" Nazwa przychodu"
-              id="incomeName"
-            />
+            <input type="text" placeholder=" Nazwa przychodu" id="incomeName" />
             <input
               type="number"
               placeholder=" kwota"
@@ -41,8 +43,18 @@
           </div>
           <div class="border-t-4 border-blue-bayoux-500 mt-5"></div>
         </div>
-        <div class="basis-2/4"><ul id="incomeList" class="ml-3 mt-3 text-blue-bayoux-700 font-bold"></ul></div>
-        <div class="basis-1/4 text-blue-bayoux-700 font-bold"><div class="border-t-4 border-blue-bayoux-500 mt-5"></div><h4 class="ml-3 mt-3">Suma przychodów: <span id="incomeSum"></span></h4></div>
+        <div class="basis-2/4">
+          <ul
+            id="incomeList"
+            class="ml-3 mt-3 text-blue-bayoux-700 font-bold"
+          ></ul>
+        </div>
+        <div class="basis-1/4 text-blue-bayoux-700 font-bold">
+          <div class="border-t-4 border-blue-bayoux-500 mt-5"></div>
+          <h4 class="ml-3 mt-3">
+            Suma przychodów: <span id="incomeSum"></span>
+          </h4>
+        </div>
       </div>
       <div
         class="border-solid border-2 bg-blue-bayoux-300 rounded-lg border-blue-bayoux-100 w-2/5 flex flex-col"
@@ -52,11 +64,7 @@
             WYDATKI
           </h4>
           <div class="flex justify-start gap-2 ml-3">
-            <input
-              type="text"
-              placeholder=" Nazwa wydatku"
-              id="expenseName"
-            />
+            <input type="text" placeholder=" Nazwa wydatku" id="expenseName" />
             <input
               type="number"
               placeholder=" kwota"
@@ -70,8 +78,18 @@
           </div>
           <div class="border-t-4 border-blue-bayoux-500 mt-5"></div>
         </div>
-        <div class="basis-2/4"><ul id="expenseList" class="ml-3 mt-3 text-blue-bayoux-700 font-bold"></ul></div>
-        <div class="basis-1/4 text-blue-bayoux-700 font-bold"><div class="border-t-4 border-blue-bayoux-500 mt-5"></div><h4  class="ml-3 mt-3">Suma wydatków: <span id="expenseSum"></span></h4></div>
+        <div class="basis-2/4">
+          <ul
+            id="expenseList"
+            class="ml-3 mt-3 text-blue-bayoux-700 font-bold"
+          ></ul>
+        </div>
+        <div class="basis-1/4 text-blue-bayoux-700 font-bold">
+          <div class="border-t-4 border-blue-bayoux-500 mt-5"></div>
+          <h4 class="ml-3 mt-3">
+            Suma wydatków: <span id="expenseSum"></span>
+          </h4>
+        </div>
       </div>
     </main>
     <script src="index.js"></script>

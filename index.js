@@ -31,28 +31,44 @@ const updateSummary = (element) => {
 };
 
 addIncome.addEventListener("click", () => {
-  if (!isNaN(incomeAmount.value) && incomeAmount.value >= 0) {
+  if (
+    !isNaN(incomeAmount.value) &&
+    incomeAmount.value > 0 &&
+    incomeName.value
+  ) {
     const li = document.createElement("li");
-    li.innerHTML = `<div>${incomeName.value} - <span id="span-amount">${incomeAmount.value}</span></div><div><button class="edit">Edytuj</button><button class="delete">Usuń</button></div>`;
+    li.innerHTML = `<div>${
+      incomeName.value
+    } - <span id="span-amount">${parseFloat(incomeAmount.value).toFixed(
+      2
+    )}</span></div><div><button class="edit">Edytuj</button><button class="delete">Usuń</button></div>`;
     li.classList.add("li");
     incomeList.appendChild(li);
     updateSummary(incomeList);
   } else {
-    alert("Proszę wprowadz prawidłową kwotę!");
+    alert("Proszę wprowadz prawidłowe wartości!");
   }
   incomeAmount.value = "";
   incomeName.value = "";
 });
 
 addExpense.addEventListener("click", () => {
-  if (!isNaN(expenseAmount.value) && expenseAmount.value >= 0) {
+  if (
+    !isNaN(expenseAmount.value) &&
+    expenseAmount.value > 0 &&
+    expenseName.value
+  ) {
     const li = document.createElement("li");
-    li.innerHTML = `<div>${expenseName.value} - <span id="span-amount">${expenseAmount.value}</span></div><div><button class="edit">Edytuj</button><button class="delete">Usuń</button></div>`;
+    li.innerHTML = `<div>${
+      expenseName.value
+    } - <span id="span-amount">${parseFloat(expenseAmount.value).toFixed(
+      2
+    )}</span></div><div><button class="edit">Edytuj</button><button class="delete">Usuń</button></div>`;
     li.classList.add("li");
     expenseList.appendChild(li);
     updateSummary(expenseList);
   } else {
-    alert("Proszę wprowadz prawidłową kwotę!");
+    alert("Proszę wprowadz prawidłowe wartości!");
   }
   expenseAmount.value = "";
   expenseName.value = "";
@@ -68,13 +84,23 @@ incomeList.addEventListener("click", (e) => {
       .trim()
       .slice(0, -1);
     const incomeValue = li.querySelector("#span-amount").innerText;
-    li.innerHTML = `<input id="editedName" value="${incomeName}" class="w-2/5"></input><input class="w-2/5" id="editedValue" value="${incomeValue}"></input><button class="save">Zapisz</button>`;
+    li.innerHTML = `<input id="editedName" value="${incomeName}" class="w-2/5"></input><input type="number" class="w-2/5" id="editedValue" value="${incomeValue}"></input><button class="save">Zapisz</button>`;
   } else if (e.target.classList.contains("save")) {
     const li = e.target.parentElement.parentElement;
     const newName = li.querySelector("#editedName").value;
     const newAmount = li.querySelector("#editedValue").value;
-    li.innerHTML = `<div class="flex justify-between gap-3"><div>${newName} - <span id="span-amount">${newAmount}</span></div><div><button class="edit">Edytuj</button><button class="delete">Usuń</button></div></div>`;
-    updateSummary(incomeList);
+    if (isNaN(newAmount) || newAmount <= 0) {
+      alert("Proszę wprowadz prawidłową kwotę!");
+    } else if (!newName) {
+      alert("Proszę wprowadz prawidłową wartość!");
+    } else {
+      li.innerHTML = `<div class="flex justify-between gap-3"><div>${newName} - <span id="span-amount">${parseFloat(
+        newAmount
+      ).toFixed(
+        2
+      )}</span></div><div><button class="edit">Edytuj</button><button class="delete">Usuń</button></div></div>`;
+      updateSummary(incomeList);
+    }
   }
 });
 
@@ -91,9 +117,20 @@ expenseList.addEventListener("click", (e) => {
     li.innerHTML = `<input id="editedName" value="${expenseName}" class="w-2/5"></input><input class="w-2/5" id="editedValue" value="${expenseValue}"</input><button class="save">Zapisz</button>`;
   } else if (e.target.classList.contains("save")) {
     const li = e.target.parentElement.parentElement;
+    console.log(li);
     const newName = li.querySelector("#editedName").value;
     const newAmount = li.querySelector("#editedValue").value;
-    li.innerHTML = `<div class="flex justify-between gap-3"><div >${newName} - <span id="span-amount">${newAmount}</span></div><div><button class="edit">Edytuj</button><button class="delete">Usuń</button></div>`;
-    updateSummary(expenseList);
+    if (isNaN(newAmount) || newAmount <= 0) {
+      alert("Proszę wprowadz prawidłową kwote!");
+    } else if (!newName) {
+      alert("Proszę wprowadz prawidłową wartość!");
+    } else {
+      li.innerHTML = `<div class="flex justify-between gap-3"><div >${newName} - <span id="span-amount">${parseFloat(
+        newAmount
+      ).toFixed(
+        2
+      )}</span></div><div><button class="edit">Edytuj</button><button class="delete">Usuń</button></div>`;
+      updateSummary(expenseList);
+    }
   }
 });
