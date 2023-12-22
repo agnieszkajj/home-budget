@@ -86,7 +86,7 @@ incomeList.addEventListener("click", (e) => {
     const incomeValue = li.querySelector("#span-amount").innerText;
     li.innerHTML = `<input id="editedName" value="${incomeName}" class="w-2/5"></input><input type="number" class="w-2/5" id="editedValue" value="${incomeValue}"></input><button class="save">Zapisz</button>`;
   } else if (e.target.classList.contains("save")) {
-    const li = e.target.parentElement.parentElement;
+    const li = e.target.closest(".li");
     const newName = li.querySelector("#editedName").value;
     const newAmount = li.querySelector("#editedValue").value;
     if (isNaN(newAmount) || newAmount <= 0) {
@@ -94,7 +94,7 @@ incomeList.addEventListener("click", (e) => {
     } else if (!newName) {
       alert("Proszę wprowadz prawidłową wartość!");
     } else {
-      li.innerHTML = `<div class="flex justify-between gap-3"><div>${newName} - <span id="span-amount">${parseFloat(
+      li.innerHTML = `<div class="flex justify-between w-full"><div>${newName} - <span id="span-amount">${parseFloat(
         newAmount
       ).toFixed(
         2
@@ -116,7 +116,7 @@ expenseList.addEventListener("click", (e) => {
     const expenseValue = li.querySelector("#span-amount").innerText;
     li.innerHTML = `<input id="editedName" value="${expenseName}" class="w-2/5"></input><input class="w-2/5" id="editedValue" value="${expenseValue}"</input><button class="save">Zapisz</button>`;
   } else if (e.target.classList.contains("save")) {
-    const li = e.target.parentElement.parentElement;
+    const li = e.target.closest(".li");
     const newName = li.querySelector("#editedName").value;
     const newAmount = li.querySelector("#editedValue").value;
     if (isNaN(newAmount) || newAmount <= 0) {
@@ -124,7 +124,7 @@ expenseList.addEventListener("click", (e) => {
     } else if (!newName) {
       alert("Proszę wprowadz prawidłową wartość!");
     } else {
-      li.innerHTML = `<div class="flex justify-between gap-3"><div >${newName} - <span id="span-amount">${parseFloat(
+      li.innerHTML = `<div class="flex justify-between w-full"><div >${newName} - <span id="span-amount">${parseFloat(
         newAmount
       ).toFixed(
         2
