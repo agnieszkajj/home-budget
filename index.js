@@ -27,7 +27,16 @@ const updateSummary = (element) => {
   } else if (element === expenseList) {
     expenseSum.innerText = total;
   }
-  totalBudget.innerText = incomeSum.innerText - expenseSum.innerText;
+  const sum = incomeSum.innerText - expenseSum.innerText;
+  if (sum < 0) {
+    totalBudget.innerText = `Bilans jest ujemny. Jesteś na minusie ${
+      sum * -1
+    } złotych`;
+  } else if (sum === 0) {
+    totalBudget.innerText = "Bilans wynosi 0";
+  } else {
+    totalBudget.innerText = `Możesz jeszcze wydać ${sum} złotych`;
+  }
 };
 
 addIncome.addEventListener("click", () => {
